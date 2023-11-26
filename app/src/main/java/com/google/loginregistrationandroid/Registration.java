@@ -79,7 +79,7 @@ public class Registration extends AppCompatActivity {
                     protected Map<String, String> getParams(){
                         Map<String, String> paramV = new HashMap<>();
                         paramV.put("name", name);
-                        paramV.put("email", password);
+                        paramV.put("email", email);
                         paramV.put("password", password);
                         return paramV;
                     }
