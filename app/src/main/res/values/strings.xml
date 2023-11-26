@@ -11,4 +11,5 @@
     <string name="logout">Logout</string>
     <string name="fetch_user">Fetch User</string>
     <string name="click_here_to_register">Click here to register</string>
+    <string name="click_here_to_login">Click here to login</string>
 </resources>

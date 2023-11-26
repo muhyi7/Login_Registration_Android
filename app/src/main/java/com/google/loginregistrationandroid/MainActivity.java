@@ -91,6 +91,37 @@ public class MainActivity extends AppCompatActivity {
                 queue.add(stringRequest);
             }
         });
+        buttonFetchUser.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                RequestQueue queue = Volley.newRequestQueue(getApplicationContext());
+                String url = "http://192.168.1.12/login-registration-android/profile.php";
+
+                StringRequest stringRequest = new StringRequest(Request.Method.POST, url,
+                        new Response.Listener<String>() {
+                            @Override
+                            public void onResponse(String response) {
+                                textViewFetchResult.setText(response);
+                                textViewFetchResult.setVisibility(View.VISIBLE);
+                            }
+                        }, new Response.ErrorListener() {
+                    @Override
+                    public void onErrorResponse(VolleyError error) {
+                        error.printStackTrace();
+
+                    }
+                }) {
+                    protected Map<String, String> getParams() {
+                        Map<String, String> paramV = new HashMap<>();
+                        paramV.put("email", sharedPreferences.getString("email", ""));
+                        paramV.put("apiKey", sharedPreferences.getString("apiKey", ""));
+                        return paramV;
+                    }
+                };
+                queue.add(stringRequest);
+
+            }
+        });
 
     }
 }

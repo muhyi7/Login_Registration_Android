@@ -85,6 +85,10 @@ public class Login extends AppCompatActivity {
                                         finish();
 
                                     }
+                                    else {
+                                        textViewError.setText(message);
+                                        textViewError.setVisibility(View.VISIBLE);
+                                    }
                                 } catch (JSONException e) {
                                     e.printStackTrace();
                                 }
